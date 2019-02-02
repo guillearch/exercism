@@ -3,9 +3,7 @@ class Matrix(object):
         self.matrix = [[int(x) for x in row.split()]
                        for row in matrix_string.splitlines()
                        ]
-        self.columns = [[row[i] for row in self.matrix]
-                        for i in range(len(self.matrix[0]))
-                        ]
+        self.columns = [list(column) for column in zip(*self.matrix)]
 
     def row(self, index):
         return self.matrix[index-1]
