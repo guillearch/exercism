@@ -1,7 +1,9 @@
 import re
 from collections import Counter
 
+p = re.compile(r'[a-z0-9]+(?:\'[tsmldvr])?')
+
 
 def word_count(phrase):
-    words = re.findall(r'[a-z0-9]+(?:\'[tsmldvr])?', phrase.lower())
-    return dict(Counter(words))
+    words = p.findall(phrase.lower())
+    return Counter(words)
